@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });   
 
-function findMostRecentBook(books) {
+function findMostRecentBook(books) {  //changed the greater than sign
     return books.reduce((mostRecent, book) => new Date(book.published) > new Date(mostRecent.published) ? book : mostRecent);
 }
 
