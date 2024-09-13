@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 🪲 Bug: Incorrect ID used for attaching the event listener
-    document.getElementById("solveRoom").addEventListener("click", () => {
+    // Corrected the Element ID
+    document.getElementById("solveRoom1").addEventListener("click", () => {
         fetch('books.json') 
             .then(response => response.json())
             .then(books => {
                 const mostRecentBook = findMostRecentBook(books);
-                // 🪲 Bug: Incorrect element ID
-                document.getElementById("resultRoom1").textContent = `The key to the next room is: ${mostRecentBook.title}`;
+              // Corrected the element ID
+                document.getElementById("result1Room").textContent = `The key to the next room is: ${mostRecentBook.title}`;
             });
     });
 
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // 🪲 Bug: What's mssing from JS concepts?
         const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
         // 🪲 Bug: Incorrect function call
-        const commonConcepts = findIntersection(jsConcepts, jsConcepts);
+        const commonConcepts = findIntersection(jsConcepts, reactConcepts);
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch('directions.json') 
             .then(response => response.json())
             .then(directions => {
-                navigateLabyrinth(directions)
+              async navigateLabyrinth(directions)
                     .then(message => {
                         // 🪲 Bug: Incorrect method
                         document.getElementById("room3Result").innerHTML = message;
@@ -41,7 +41,7 @@ function findMostRecentBook(books) {
 function findIntersection(setA, setB) {
     // 🪲 Bug: Incorrect logic
     const intersection = new Set([...setA]);
-    return intersection;
+    return intersection ;
 }
 
 async function navigateLabyrinth(directions) {
